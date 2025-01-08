@@ -310,7 +310,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import { useSignupMutation } from './features/authApiSlice';
 import { setCredentials } from './features/authSlice';
 import { useDispatch } from 'react-redux';

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Navbar from './navbar';
+import Navbar from './Navbar';
 import Footer from './Footer';
 import Buymodal from './Buymodal';
 import { useDispatch, useSelector } from 'react-redux';

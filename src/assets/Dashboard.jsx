@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Navbar from './navbar';
+import Navbar from './Navbar';
 import Footer from './Footer';
 import { PieChart } from 'react-minimal-pie-chart';
 import Buymodal from './Buymodal'

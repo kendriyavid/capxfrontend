@@ -42,7 +42,7 @@
 
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Landing = () => {

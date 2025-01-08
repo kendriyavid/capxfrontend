@@ -1,4 +1,4 @@
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import { useSelector, useDispatch } from 'react-redux';
 import { useLoginMutation } from './features/authApiSlice';
 import { useNavigate } from 'react-router-dom';

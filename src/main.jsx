@@ -1,8 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import App from './App.jsx';
-import Navbar from './assets/navbar.jsx';
 import Landing from './assets/Landing.jsx';
 import Stocklistings from './assets/Stocklistings.jsx';
 import Dashboard from "./assets/Dashboard.jsx";

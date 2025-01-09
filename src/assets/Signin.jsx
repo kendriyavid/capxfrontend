@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { setCredentials } from './features/authSlice';
 // import { updateField } from './features/signupSlice';
 import React, { useState } from 'react';
+import Footer from "./Footer";
 
 
 
@@ -120,12 +121,13 @@ function Signin() {
         return (
             <>
                 <Navbar />
-                <div className="container mx-auto max-w-md sm:min-h-screen sm:m-auto">
-                    <div className="grid grid-rows-4 min-h-screen bg-[#1D232A] sm:min-h-fit sm:pt-10">
-                        <label className="row-start-1 text-5xl justify-self-center m-auto font-mono text-[#eae0d5] sm:hidden">
+                <div className="bg-[#EAE0D5]">
+                <div className="container mx-auto max-w-md sm:min-h-screen sm:m-auto ">
+                    <div className="grid grid-rows-4 min-h-screen sm:min-h-fit sm:pt-10">
+                        <label className="row-start-1 text-5xl justify-self-center m-auto font-mono text-black font-extrabold sm:hidden">
                             CapX
                         </label>
-                        <form onSubmit={handleSubmit} className="row-start-2 row-span-3 sm:row-start-1 bg-[#eae0d5] rounded-t-badge sm:rounded-badge border-t-8 border-[#c6ac8f] grid grid-rows-6 text-xl justify-stretch items-center font-mono p-6">
+                        <form onSubmit={handleSubmit} className="row-start-2 row-span-3 sm:row-start-1 bg-[#eae0d5] rounded-t-badge sm:rounded-badge border-2 border-black grid grid-rows-6 text-xl justify-stretch items-center font-mono p-6">
                             <label className="row-start-1 text-3xl text-black justify-self-center font-bold">
                                 Sign In
                             </label>
@@ -179,19 +181,21 @@ function Signin() {
                             <button 
                                 type="submit"
                                 disabled={isLoading}
-                                className="bg-[#5e503f] row-start-5 text-black w-full justify-self-center rounded-lg mt-3 hover:bg-[#4e4233] transition-colors duration-200"
+                                className="bg-[#C6AC8F] row-start-5 text-black w-full justify-self-center rounded-lg mt-3 hover:bg-[#C6AC8F] transition-colors duration-200"
                             >
                                 <p className="p-4 font-bold">{isLoading ? 'Signing up...' : 'SignIn'}</p>
                             </button>
 
                             <button onClick={() => navigate('/signup')}
-                                className="bg-[#5e503f] row-start-6 text-black w-full justify-self-center rounded-lg hover:bg-[#4e4233] transition-colors duration-200"
+                                className="bg-[#C6AC8F] row-start-6 text-black w-full justify-self-center rounded-lg hover:bg-[#C6AC8F] transition-colors duration-200"
                             >
                                 <p className="p-4 font-bold">Register with Us</p>
                             </button>
                         </form>
                     </div>
                 </div>
+                </div>
+            
             </>
         );
     }

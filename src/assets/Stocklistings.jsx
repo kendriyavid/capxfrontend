@@ -31,8 +31,8 @@ function Stocklistings() {
     return(
       <>
         <Navbar></Navbar>
-        <div className='flex justify-center min-h-screen'>
-          <progress className="progress w-56 mt-auto mb-auto"></progress>
+        <div className='flex justify-center min-h-screen bg-[#EAE0D5]'>
+          <progress className="progress w-56 mt-auto mb-auto bg-black"></progress>
         </div>
       </>
     )
@@ -43,19 +43,19 @@ function Stocklistings() {
   return (
     <>
       <Navbar />
-      <div className="min-h-fit flex flex-col p-4">
+      <div className="min-h-fit flex flex-col p-4 bg-[#EAE0D5]">
         <div className="flex flex-row justify-start">
-          <h1 className="font-mono text-2xl sm:text-3xl">Stock Listings</h1>
+          <h1 className="font-mono text-2xl sm:text-3xl text-black">Stock Listings</h1>
         </div>
   
         <div className="flex flex-row min-w-full min-h-screen justify-center sm:mt-3 pt-4 pb-4 flex-shrink-0">
           <div className="max-h-full flex-grow sm:max-w-[70%] ">
-            <div className="flex flex-row bg-inherit justify-around border-yellow-400 border-b-2 m-2">
+            <div className="flex flex-row bg-inherit justify-around border-[#C6AC8F] border-b-2 m-2">
               <div className="flex flex-row items-center md:space-x-4 w-full justify-between sm:pt-1 sm:pb-1 sm:pl-1 sm:pr-1 sm:space-x-1">
                 <div className="flex flex-row justify-start">
-                  <p className="text-white font-mono sm:text-xl text-sm hover:cursor-pointer font-extrabold sm:mr-2">Name</p>
+                  <p className="text-black font-mono sm:text-xl text-sm hover:cursor-pointer font-extrabold sm:mr-2">Name</p>
                 </div>
-                <div className="flex flex-row flex-grow justify-center gap-7 sm:text-xl text-sm text-white font-bold font-mono">
+                <div className="flex flex-row flex-grow justify-center gap-7 sm:text-xl text-sm text-black font-bold font-mono">
                   <p>Current</p>
                   <p>High</p>
                   <p className="hidden sm:block">Low</p>
@@ -65,27 +65,27 @@ function Stocklistings() {
             </div>
 
             {rendering.map((value, index) => (
-              <div key={index} className="flex flex-row sm:ml-4 sm:mr-4 sm:mt-2 ml-2 mr-2 mt-2 bg-black rounded-md justify-around hover:border-yellow-400 border-b-2 border-black">
+              <div key={index} className="flex flex-row sm:ml-4 sm:mr-4 sm:mt-2 ml-2 mr-2 mt-2 bg-[#EAE0D5] rounded-md justify-around hover:border-yellow-400 border-b-2 border-black">
                 <div className="pt-2 pb-2 pl-4 pr-4 flex flex-row items-center space-x-4 w-full justify-between">
                   <div className="flex flex-row justify-start">
-                    <p className="text-white font-mono sm:text-lg text-sm hover:text-yellow-400 hover:cursor-pointer font-extrabold sm:mr-2 mr-1">{value.symbol}</p>
+                    <p className="text-black font-mono sm:text-lg text-sm hover:text-yellow-400 hover:cursor-pointer font-extrabold sm:mr-2 mr-1">{value.symbol}</p>
                   </div>
-                  <div className="flex flex-row flex-grow justify-center sm:gap-7 gap-5 text-white font-mono sm:text-lg text-sm">
+                  <div className="flex flex-row flex-grow justify-center sm:gap-7 gap-5 text-black font-mono sm:text-lg text-sm">
                     <p>{value.data.c.toFixed(2)}</p>
                     <p>{value.data.h.toFixed(2)}</p>
                     <p className="hidden sm:block">{value.data.l.toFixed(2)}</p>
                     <p>{value.data.pc.toFixed(2)}</p>
                   </div>
-                  <p className="text-yellow-400 sm:text-lg font-extrabold font-mono hover:cursor-pointer" onClick={() => handleBuyClick(value)}>Buy</p>
+                  <p className="text-black sm:text-lg font-extrabold font-mono hover:cursor-pointer" onClick={() => handleBuyClick(value)}>Buy</p>
                 </div>
               </div>
             ))}
 
             <div className="flex justify-center mt-4">
               <div className="join">
-                <button className="join-item btn" onClick={() => setCpage(cpage > 1 ? cpage - 1 : 1)}>«</button>
-                <button className="join-item btn">{cpage}</button>
-                <button className="join-item btn" onClick={() => setCpage(cpage < Math.ceil(length / 10) ? cpage + 1 : cpage)}>»</button>
+                <button className="join-item btn bg-[#C6AC8F] text-black" onClick={() => setCpage(cpage > 1 ? cpage - 1 : 1)}>«</button>
+                <button className="join-item btn bg-[#C6AC8F] text-black">{cpage}</button>
+                <button className="join-item btn bg-[#C6AC8F] text-black" onClick={() => setCpage(cpage < Math.ceil(length / 10) ? cpage + 1 : cpage)}>»</button>
               </div>
             </div>
 

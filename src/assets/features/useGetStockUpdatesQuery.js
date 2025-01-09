@@ -19,7 +19,16 @@ const refreshTokenFn = async (refreshToken) => {
     //   body: JSON.stringify({ refreshToken }),
     // });
   
-    const response = await fetch('https://capxbackend-lp2b.onrender.com', {
+    // const response = await fetch('https://capxbackend-lp2b.onrender.com', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ refreshToken }),
+    // });
+
+
+    const response = await fetch('https://capxbackend-dzfqcwcvemcebseh.centralindia-01.azurewebsites.net/api/auth/refresh', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +79,13 @@ export const getStockUpdates = apiSlice.injectEndpoints({
             //   },
             // });
 
-            es = new EventSourcePolyfill('https://capxbackend-lp2b.onrender.com/api/sse', {
+            // es = new EventSourcePolyfill('https://capxbackend-lp2b.onrender.com/api/sse', {
+            //   headers: {
+            //     authorization: `Bearer ${token}`,
+            //   },
+            // });
+
+            es = new EventSourcePolyfill('https://capxbackend-dzfqcwcvemcebseh.centralindia-01.azurewebsites.net/api/sse', {
               headers: {
                 authorization: `Bearer ${token}`,
               },

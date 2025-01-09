@@ -90,10 +90,10 @@ function Sellmodal({ selectedStock }) {
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
                 <h3 className="font-bold text-lg font-mono">SELL</h3>
-                <div className="flex flex-row font-mono mt-3 mb-3">
-                    <p className="m-auto flex-wrap">Name: {selectedStock.stocks.stock_symbol}</p>
-                    <p className="m-auto flex-wrap">Current: {selectedStock.stocks.current_price}</p>
-                    <p className="m-auto flex-wrap">Units Held: {selectedStock.units_held}</p>
+                <div className="flex flex-row font-mono mt-3 mb-3 justify-between">
+                    <p className=" flex-wrap">Name: {selectedStock.stocks.stock_symbol}</p>
+                    <p className=" flex-wrap">Current: {selectedStock.stocks.current_price}</p>
+                    
                 </div>
                 <form onSubmit={handleSubmit}>
                 Units:
@@ -121,9 +121,17 @@ function Sellmodal({ selectedStock }) {
                                 className={`w-full border-2 border-black bg-inherit p-2 rounded-md`}
                             />
                     </div>
-                    <div className="flex flex-row font-mono">
+                    <div className="flex flex-row font-mono justify-between">
                         Current Value: ${selectedStock.stocks.current_price * units || 0}
+                        {selectedStock &&(
+                            <div className="tooltip tooltip-left" data-tip="Performance is calculated from the date of purchase">
+                                <p className="m-auto flex-wrap">Growth: {selectedStock.performance.toFixed(3)}%</p>
+                            </div>
+                        )}
+
                     </div>
+                        <p className="m-auto ">Units Held: {selectedStock.units_held}</p>
+                        
                     <div className="flex flex-row m-3">
                         {/* <button 
                             className="btn bg-black m-auto" 
@@ -135,7 +143,7 @@ function Sellmodal({ selectedStock }) {
                         <button 
                             type="submit"
                             disabled={isLoading || units <= 0 || !selectedStock}                            
-                            className="bg-[#5e503f] row-start-6 text-black w-full justify-self-center rounded-lg mt-3 hover:bg-[#4e4233] transition-colors duration-200"
+                            className="bg-black row-start-6 text-white w-full justify-self-center rounded-lg mt-3 hover:bg-[#4e4233] transition-colors duration-200"
                         >
                             <p className="p-4 font-bold">{isLoading ? 'Selling...' : 'Sell'}</p>
                         </button>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useSellMutation } from './features/buysellSlice';
-import { useSelector } from 'react-redux';
 import {useDispatch} from 'react-redux';
 import {updateUserStocks} from './features/stocksSlice.js';
 function Sellmodal({ selectedStock }) {
@@ -9,7 +8,6 @@ function Sellmodal({ selectedStock }) {
     const [showSuccess, setShowSuccess] = useState(false);
     const [showError, setShowError] = useState(false);
     const [sell, { isLoading }] = useSellMutation();
-    const userState = useSelector((state) => state.auth.user);
 
     if (!selectedStock) return null;
 
@@ -23,9 +21,9 @@ function Sellmodal({ selectedStock }) {
             const result = await sell({
                 symbol: selectedStock.stocks.stock_symbol,
                 units,
-                user: {
-                    id: userState.id
-                }
+                // user: {
+                //     id: userState.id
+                // }
             }).unwrap();
             dispatch(updateUserStocks(result));
             setShowSuccess(true);

@@ -155,7 +155,6 @@
 
 
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useBuyMutation } from './features/buysellSlice';
 import { useDispatch } from 'react-redux';
 import { updateUserStocks } from './features/stocksSlice.js';
@@ -165,7 +164,6 @@ function Buymodal({ selectedStock }) {
     const [showToast, setShowToast] = useState(false);
     const [showError, setShowError] = useState(false);
     const [buy, { isLoading }] = useBuyMutation();
-    const userState = useSelector((state) => state.auth.user);
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
@@ -179,10 +177,8 @@ function Buymodal({ selectedStock }) {
         try {
             const result = await buy({
                 symbol: selectedStock.symbol || selectedStock.stocks.stock_symbol,
-                units,
-                user: {
-                    id: userState.id
-                }
+                units
+              
             }).unwrap();
             console.log('Buy result:', result);
             dispatch(updateUserStocks(result));

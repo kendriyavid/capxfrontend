@@ -34,7 +34,7 @@ function Dashboard() {
 
   const fetchTransactions = async () => {
     try {
-      const response = await getUserTransactions(user).unwrap();
+      const response = await getUserTransactions().unwrap();
       console.log(response);
       setTrlength(response.length);
       console.log(trlength);
@@ -58,7 +58,7 @@ function Dashboard() {
   const updateValuation = async () => {
     console.log('Updating Valuation');
       try{
-          const result = await getuserValuation(user).unwrap();
+          const result = await getuserValuation().unwrap();
           console.log('Valuation:', result);
           dispatch(updatePortfolioValue(result));
       }
@@ -68,7 +68,7 @@ function Dashboard() {
   };
   const fetchStockData = async () => {
     try {
-      const response = await getUserStocks(user).unwrap();
+      const response = await getUserStocks().unwrap();
       // const {portfolioValuation,data} = response
       // console.log(response);
       // dispatch(updatePortfolioValue(portfolioValuation));

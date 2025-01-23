@@ -5,9 +5,10 @@ import { setCredentials, logout as logoutAction } from './authSlice';
 import { useLogoutMutation } from './authApiSlice.js';
 
 export const baseQuery = fetchBaseQuery({
-    // baseUrl: 'http://localhost:3000/api',
-    // baseUrl: 'https://capxbackend-lp2b.onrender.com/api',
-    baseUrl: 'https://capxproject-epa6b2d3ddfqffa5.centralindia-01.azurewebsites.net/api',
+
+    baseUrl: import.meta.env.VITE_BASE_URL,
+    // baseUrl: 'https://capxproject-epa6b2d3ddfqffa5.centralindia-01.azurewebsites.net/api',
+    
     credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
         const token = getState().auth.accessToken;

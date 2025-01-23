@@ -1,4 +1,3 @@
-// src/features/signupSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {

@@ -58,35 +58,6 @@ function Signin() {
         return newErrors;
     };
 
-
-    
-
-
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const result = await signin({
-    //             username,
-    //             email,
-    //             password
-    //         }).unwrap();
-
-    //         console.log('Signin result:', result);
-
-    //         dispatch(setCredentials({
-    //             accessToken: result.accessToken,
-    //             refreshToken: result.refreshToken,
-    //             user: result.user
-    //         }));
-
-    //         navigate('/dashboard');
-    //     } catch (err) {
-    //         const errorMessage = err.data?.message || 'An error occurred during signin';
-    //         alert(errorMessage);
-    //         console.error('Signin error:', err);
-    //     }}
-
         const handleSubmit = async (e) => {
             e.preventDefault();
             const newErrors = validateForm();
@@ -107,7 +78,8 @@ function Signin() {
     
                     navigate('/dashboard');
                 } catch (err) {
-                    const errorMessage = err.data?.message || 'An error occurred during signin';
+                    console.log(err)
+                    const errorMessage = err.data?.error || 'An error occurred during signin';
                     setErrors({ submit: errorMessage });
                     console.error('Signup error:', err);
                 }

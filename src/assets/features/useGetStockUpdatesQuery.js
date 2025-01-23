@@ -1,7 +1,6 @@
 
 
 import { apiSlice, handleLogout } from './apiSlice.js';
-import { baseQuery } from './apiSlice.js';
 import { EventSourcePolyfill } from 'event-source-polyfill';
 import { updateStocks, updateUserStocks, updatePortfolioValue } from './stocksSlice.js';
 import { store } from '../app/store.js';
@@ -19,7 +18,15 @@ const refreshTokenFn = async (refreshToken) => {
     //   body: JSON.stringify({ refreshToken }),
     // });
 
-    const response = await fetch('https://capxproject-epa6b2d3ddfqffa5.centralindia-01.azurewebsites.net/api/auth/refresh', {
+    // const response = await fetch('https://capxproject-epa6b2d3ddfqffa5.centralindia-01.azurewebsites.net/api/auth/refresh', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ refreshToken }),
+    // });
+
+    const response = await fetch(import.meta.env.VITE_STOCK_REFRESHTOKEN_URL , {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -76,11 +83,18 @@ export const getStockUpdates = apiSlice.injectEndpoints({
             //   },
             // });
 
-            es = new EventSourcePolyfill('https://capxproject-epa6b2d3ddfqffa5.centralindia-01.azurewebsites.net/api/sse', {
+            // es = new EventSourcePolyfill('https://capxproject-epa6b2d3ddfqffa5.centralindia-01.azurewebsites.net/api/sse', {
+            //   headers: {
+            //     authorization: `Bearer ${token}`,
+            //   },
+            // });
+
+            es = new EventSourcePolyfill(import.meta.env.VITE_SSE_URL, {
               headers: {
                 authorization: `Bearer ${token}`,
               },
             });
+
 
             es.onmessage = (event) => {
               const data = JSON.parse(event.data);

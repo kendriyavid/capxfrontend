@@ -76,7 +76,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './assets/app/store';
 import GlobalStocks from './assets/features/globalStocks.js';
 
-// New component to handle public routes (signin/signup)
 const PublicRoute = ({ children }) => {
   const isAuthenticated = store.getState().auth.user !== null;
   

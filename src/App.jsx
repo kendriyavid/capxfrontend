@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef} from 'react'
-import Navbar from './assets/navbar';
+import Navbar from './assets/Navbar';
 import Footer from './assets/Footer';
 
 function App(){
